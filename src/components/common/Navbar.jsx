@@ -1,0 +1,73 @@
+import React, { useState } from 'react';
+import { MdClose, MdMenu, MdPersonOutline } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+    return (
+        <header className='relative  w-full'>
+            <nav className='flex justify-between items-center bg-black bg-opacity-30 py-12  content-padding  h-20  w-full '>
+                <div>
+                    <h1 className='text-light-theme text-xl lg:text-5xl text-center  font-bold'>
+                        Bebshai
+                    </h1>
+                </div>
+
+                <div>
+                    <button
+                        className={`bg-light-theme text-white px-2 lg:px-3 py-2 lg:py-4 rounded-md`}
+                    >
+                        Post A Requirement
+                    </button>
+                </div>
+
+                <ul
+                    className={`flex flex-col md:flex-row md:items-center bg-black md:bg-transparent divide-y-2 
+        md:divide-y-0 divide-gray-400 min-h-screen md:min-h-0 absolute z-50
+        md:static top-0 left-0 w-full md:w-auto transform transition-transform md:translate-x-0 ${
+            isMobileNavOpen ? '' : '-translate-x-full'
+        } `}
+                >
+                    <li className='md:hidden pl-3 md:pl-0 py-3 md:py-0 md:mx-4'>
+                        <span className='text-gray-200 text-4xl flex '>
+                            <MdClose
+                                className='ml-auto cursor-pointer'
+                                onClick={() => setIsMobileNavOpen(false)}
+                            />
+                        </span>
+                    </li>
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-4'>
+                        <Link to='/' className='text-gray-200'>
+                            Home
+                        </Link>
+                    </li>
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-4'>
+                        <Link to='/' className='text-gray-200'>
+                            About
+                        </Link>
+                    </li>
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-4'>
+                        <Link to='/' className='text-gray-200'>
+                            Contact Us
+                        </Link>
+                    </li>
+
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-2'>
+                        <Link to='/' className='text-gray-200 text-4xl'>
+                            <MdPersonOutline />
+                        </Link>
+                    </li>
+                </ul>
+                {/* hamburger visible on mobile only */}
+                <div className='block  md:hidden'>
+                    <span className='text-gray-200 text-4xl'>
+                        <MdMenu onClick={() => setIsMobileNavOpen(true)} />
+                    </span>
+                </div>
+            </nav>
+        </header>
+    );
+};
+
+export default Navbar;

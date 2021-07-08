@@ -5,6 +5,7 @@ import { Navbar, Footer, Card, InputField } from "../../components/index";
 const ProfilePage = () => {
   const [active, setActive] = useState("Your requirements");
 
+
   return (
     <div className="relative antialiased">
       <div
@@ -13,7 +14,7 @@ const ProfilePage = () => {
       ></div>
       <Navbar />
 
-      <section className="antialiased relative z-10 w-full    flex flex-col md:flex-row  justify-center md:justify-start max-w-2xl lg:max-w-4xl xl:container mx-auto items-center   ">
+      <section className="antialiased relative z-10 w-full    flex flex-col md:flex-row  justify-center md:justify-start max-w-2xl lg:max-w-4xl xl:container xl:px-16 mx-auto items-center   ">
         <img
           className="w-40 h-40 mt-20 rounded-full relative"
           src="https://www.pinkvilla.com/files/styles/contentpreview/public/iron-man-star-robert-downey-jr-best-film.jpg?itok=QFDPnWbO"
@@ -35,21 +36,21 @@ const ProfilePage = () => {
         <div className="flex flex-row justify-center lg:justify-start items-center lg:container lg:px-24  mx-auto space-x-4 md:space-x-6 lg:space-x-8 p-4    ">
           <button
             onClick={() => setActive("Your requirements")}
-            className="text-md md:text-xl font-semibold leading-relaxed hover:text-regular-theme  hover:border hover:border-light-theme "
+            className="text-md md:text-xl xl:text-2xl font-semibold leading-relaxed py-2  hover:text-regular-theme  hover:border hover:border-light-theme "
           >
             Your requirements
           </button>
           <button
             onClick={() => setActive("Sent proposals")}
-            className="text-md md:text-xl font-semibold leading-relaxed hover:text-regular-theme  hover:border hover:border-light-theme "
+            className="text-md md:text-xl xl:text-2xl  font-semibold leading-relaxed hover:text-regular-theme  hover:border hover:border-light-theme "
           >
-            Your requirements
+            Sent proposals
           </button>
           <button
             onClick={() => setActive("Edit profile")}
-            className="text-md md:text-xl font-semibold leading-relaxed hover:text-regular-theme  hover:border hover:border-light-theme "
+            className="text-md md:text-xl xl:text-2xl font-semibold leading-relaxed  py-2 "
           >
-            Your requirements
+            Edit profile
           </button>
         </div>
         {/* card */}

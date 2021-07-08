@@ -6,8 +6,8 @@ const Navbar = () => {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
     return (
-        <header className='relative  w-full'>
-            <nav className='flex justify-between items-center bg-black bg-opacity-30 py-12  content-padding  h-20  w-full '>
+        <header className='relative bg-black bg-opacity-30  w-full'>
+            <nav className='flex justify-between items-center px-4 md:px-8 lg:px-16  py-12 container mx-auto  h-20  w-full '>
                 <div>
                     <h1 className='text-light-theme text-xl lg:text-5xl text-center  font-bold'>
                         Bebshai
@@ -37,23 +37,23 @@ const Navbar = () => {
                             />
                         </span>
                     </li>
-                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-4'>
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 text-white py-3 md:py-0  hover:text-light-theme  md:mx-4'>
                         <Link to='/' className='text-gray-200'>
                             Home
                         </Link>
                     </li>
-                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-4'>
-                        <Link to='/' className='text-gray-200'>
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 text-white hover:text-light-theme  md:mx-4'>
+                        <Link to='/about' className='text-gray-200'>
                             About
                         </Link>
                     </li>
-                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-4'>
-                        <Link to='/' className='text-gray-200'>
-                            Contact Us
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 text-white hover:text-light-theme  md:mx-4'>
+                        <Link to='/products' className='text-gray-200'>
+                            Products
                         </Link>
                     </li>
 
-                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 hover:bg-gray-800  md:mx-2'>
+                    <li className='w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 text-white hover:text-light-theme  md:mx-2'>
                         <Link to='/' className='text-gray-200 text-4xl'>
                             <MdPersonOutline />
                         </Link>

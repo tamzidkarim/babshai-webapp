@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { MdLocationOn, MdMailOutline, MdPhone } from "react-icons/md";
+import React, { useState } from 'react';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { MdLocationOn, MdMailOutline, MdPhone } from 'react-icons/md';
+
 const Footer = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
 
   // will execute when mail send button pressed
   const sendMail = () => {
-    console.log("mail sent");
+    console.log('mail sent');
   };
 
   return (
     <footer className=" content-padding bg-dark-theme py-6 md:py-10 mt-auto ">
-      <div className=" grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center">
+      <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center">
         <div>
-          <h1 className=" text-light-theme text-4xl font-bold">Bebshai</h1>
+          <h1 className=" text-light-theme text-4xl font-bold">Babshai</h1>
         </div>
         {/* address */}
         <address>
@@ -39,25 +40,21 @@ const Footer = () => {
             <label htmlFor="subscribe" className="text-gray-200 ">
               Subscribe to newsletter
             </label>
-            <div className="flex mt-3 rounded-md bg-white ">
+            <div className="flex mt-3  bg-white ">
               <input
                 type="email"
                 id="subscribe"
                 placeholder="Enter you email here"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className=" px-1 py-3 rounded-l-md w-full"
+                className="px-4 py-3 rounded-l-md w-full focus:outline-none rounded"
               />
-              <button
-                onClick={sendMail}
-                className=" text-black px-4 rounded-md "
-              >
+              <button onClick={sendMail} className=" text-black px-4  ">
                 Send
               </button>
             </div>
           </div>
         </div>
-        {/* follow */}
         <div className="flex justify-start lg:justify-center mt-6 md:mt-0">
           <div>
             <p className="text-gray-200">Follow us</p>

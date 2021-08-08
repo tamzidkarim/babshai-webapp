@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Register = () => {
   const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
     const { password, confirmPassword } = values;
     if (password !== confirmPassword) {
-      alert("password did not match");
+      alert('password did not match');
     } else {
       console.log(values);
       setIsSubmitting(true);
@@ -137,9 +137,12 @@ const Register = () => {
 
           <div className="my-6 border-gray-300 w-full">
             <p className="mt-8 tracking-wide leading-relaxed ">
-              Don't have an account?
-              <a href="/" className="text-light-theme underline  font-bold">
-                Sign Up
+              Do you have an account?{' '}
+              <a
+                href="/login"
+                className="text-light-theme underline  font-bold"
+              >
+                Login
               </a>
             </p>
           </div>

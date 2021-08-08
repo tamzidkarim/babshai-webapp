@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { Navbar } from "../../components";
+import { Footer, Navbar } from "../../components";
 import Logo from "../../assets/images.svg";
+
 const FileUpload = () => {
   const [values, setValues] = useState({
     productName: "",
     image: "",
-    catagory: "",
+    category: "",
     budget: "",
-    description:
-      "",
+    description: "",
+    quantity: "",
+    certificates: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -27,9 +29,9 @@ const FileUpload = () => {
   return (
     <div className="antialiased">
       <Navbar />
-      <div className="container md:max-w-2xl lg:max-w-3xl xl:max-w-6xl mx-auto px-6  md:px-4 py-6 md:py-8 ">
+      <div className="container md:max-w-2xl lg:max-w-3xl xl:max-w-6xl mx-auto px-6  md:px-4 py-6 md:py-8 mb-10">
         <h1 className="text-2xl lg:text-4xl lg:mt-8 font-bold tracking-wide leading-relaxed">
-          Fill in the details below -
+          Fill in the details below
         </h1>
 
         <div className="">
@@ -46,8 +48,8 @@ const FileUpload = () => {
                 id=""
                 value={values.productName}
                 onChange={handleChange}
-                placeholder="Golden Silk Threads"
-                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4  font-medium placeholder-black mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
+                placeholder="e.g. Golden Silk Threads"
+                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4  font-medium placeholder-gray-400 mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
                 autofocus
                 autocomplete
                 required
@@ -61,33 +63,67 @@ const FileUpload = () => {
               </label>
             </div>
             <div className="mt-4 md:col-span-2">
-              <label class="block text-gray-700">Gatagory</label>
+              <label class="block text-gray-700">Category</label>
               <input
                 type="text"
-                name="catagory"
+                name="category"
                 id=""
-                value={values.catagory}
+                value={values.category}
                 onChange={handleChange}
-                placeholder="Threads"
-                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4 font-medium placeholder-black mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
+                placeholder="e.g. Threads"
+                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4 font-medium placeholder-gray-400 mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
+                autofocus
+                autocomplete
+                required
+              />
+            </div>
+            <div className="mt-4 md:col-span-2">
+              <label class="block text-gray-700">Quantity</label>
+              <input
+                type="text"
+                name="quantity"
+                id=""
+                value={values.quantity}
+                onChange={handleChange}
+                placeholder="e.g. 1000 Pcs"
+                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4 font-medium placeholder-gray-400 mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
                 autofocus
                 autocomplete
                 required
               />
             </div>
             <div className="mt-4 md:col-span-1">
-              <label class="block text-gray-700">Budget in BDT</label>
+              <label class="block text-gray-700">
+                Estimated Budget (In USD)
+              </label>
               <input
                 type="number"
                 name="budget"
                 id=""
                 value={values.budget}
                 onChange={handleChange}
-                placeholder="1500"
-                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4  font-medium placeholder-black mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
+                placeholder="e.g. 1500"
+                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4  font-medium placeholder-gray-400 mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
                 autofocus
                 autocomplete
                 required
+                min={0}
+              />
+            </div>
+            <div className="mt-4 md:col-span-1">
+              <label class="block text-gray-700">Required certificates</label>
+              <input
+                type="text"
+                name="certificates"
+                id=""
+                value={values.certificates}
+                onChange={handleChange}
+                placeholder="e.g. Oeko-tex® / GOTS / Recycle"
+                className="w-full md:w-4/5 xl:w-3/5 px-4 py-2 md:py-3 lg:py-4 font-medium placeholder-gray-400 mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
+                autofocus
+                autocomplete
+                required
+                min={0}
               />
             </div>
             <div className="mt-4 md:col-span-3  ">
@@ -111,6 +147,7 @@ const FileUpload = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

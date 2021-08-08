@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ["roboto", "sans-serif"],
+        sans: ["Lato", "sans-serif"],
+        serif: ["Merriweather", "serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         "light-theme": "#ff5C5c",
@@ -17,7 +19,8 @@ module.exports = {
         "6.5xl": "4rem",
       },
       backgroundImage: (theme) => ({
-        "cloth-preview": "url('https://images.unsplash.com/photo-1606787947360-4181fe0ab58c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')",
+        "cloth-preview":
+          "url('https://images.unsplash.com/photo-1606787947360-4181fe0ab58c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')",
       }),
     },
   },

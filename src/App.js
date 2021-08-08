@@ -14,7 +14,7 @@ import {
 
 const App = () => {
   return (
-    <div className=" font-roboto">
+    <div className="font-sans">
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -26,7 +26,7 @@ const App = () => {
           <Route path="/products" exact component={ProductsPage} />
           <Route path="/products/:id" component={ProductRequirements} />
           {/* <Route path="/editprofile" component={EditPage} /> */}
-          <Route path="/fileupload" component={FileUpload} />
+          <Route path="/post" component={FileUpload} />
           <Route path="/about" component={AboutPage} />
         </Switch>
       </Router>

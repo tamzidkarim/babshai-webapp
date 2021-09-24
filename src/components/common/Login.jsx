@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { supabase } from '../../supabaseClient';
 
 const Login = () => {
+  const history = useHistory();
+
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+    const { password, email } = values;
+
+    let { user, session, error } = await supabase.auth.signIn({
+      email,
+      password,
+    });
+
+    if (error == null) {
+      history.push('/profile');
+    }
     setIsSubmitting(true);
   };
   const handleChange = (e) => {

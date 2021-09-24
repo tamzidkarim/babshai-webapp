@@ -46,9 +46,7 @@ const ProductsPage = () => {
 
       <section className="mt-8  md:mt-16  ">
         <div className="flex flex-row justify-start lg:justify-start items-center lg:container lg:px-24  mx-auto space-x-4 md:space-x-6 lg:space-x-8 p-4    ">
-          <h1 className="text-md md:text-xl lg:text-2xl font-semibold leading-relaxed  py-2    ">
-            Showing results for "Golden Silk" ...
-          </h1>
+          <h1 className="text-md md:text-xl lg:text-2xl font-semibold leading-relaxed  py-2 "></h1>
         </div>
 
         <Card />

@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdClose, MdMenu, MdPersonOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { supabase } from '../../supabaseClient';
 
 const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [username, setUsername] = useState(null);
+  const getUserProfile = async () => {
+    const user = supabase.auth.user();
+    let {
+      data: profile,
+      error,
+      status,
+    } = await supabase
+      .from('profile')
+      .select('display_name')
+      .eq('id', user.id)
+      .single();
+    if (error && status !== 406) {
+      throw error;
+    }
+
+    if (profile) {
+      setUsername(profile.display_name);
+    }
+  };
+
+  useEffect(() => {
+    getUserProfile();
+    return () => {};
+  }, []);
+
+  console.log(username);
 
   return (
     <header className="relative bg-black bg-opacity-50  w-full">
@@ -58,9 +86,15 @@ const Navbar = () => {
           </li>
 
           <li className="w-full xl:px-4 md:w-auto pl-3 md:pl-0 py-3 md:py-0 text-white hover:text-light-theme  md:mx-2">
-            <Link to="/login" className="text-gray-200 text-4xl">
-              <MdPersonOutline />
-            </Link>
+            {username ? (
+              <Link to="/profile" className="text-gray-200 text-xl">
+                {username}
+              </Link>
+            ) : (
+              <Link to="/login" className="text-gray-200 text-4xl">
+                <MdPersonOutline />
+              </Link>
+            )}
           </li>
         </ul>
         {/* hamburger visible on mobile only */}

@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { Navbar, Footer, Card, InputField } from "../../components/index";
 
 const ProfilePage = () => {
-  const [active, setActive] = useState("Your requirements");
-
+  const [active, setActive] = useState("Edit profile");
 
   return (
     <div className="relative antialiased">
@@ -33,31 +32,37 @@ const ProfilePage = () => {
 
       {/* details */}
       <section className="mt-16 md:mt-36">
-        <div className="flex flex-row justify-center lg:justify-start items-center lg:container lg:px-24  mx-auto space-x-4 md:space-x-6 lg:space-x-8 p-4    ">
+        <div className="flex flex-row justify-center lg:justify-start items-center lg:container lg:px-24  mx-auto space-x-4 md:space-x-6 lg:space-x-8 p-4">
+          <button
+            onClick={() => setActive("Edit profile")}
+            className={`text-md md:text-xl xl:text-2xl font-semibold leading-relaxed  py-2 ${
+              active === "Edit profile" ? "text-red-500" : ""
+            }`}
+          >
+            Edit profile
+          </button>
           <button
             onClick={() => setActive("Your requirements")}
-            className="text-md md:text-xl xl:text-2xl font-semibold leading-relaxed py-2  hover:text-regular-theme  hover:border hover:border-light-theme "
+            className={`text-md md:text-xl xl:text-2xl font-semibold leading-relaxed py-2  hover:text-regular-theme  hover:border hover:border-light-theme ${
+              active === "Your requirements" ? "text-red-500" : ""
+            }`}
           >
             Your requirements
           </button>
           <button
             onClick={() => setActive("Sent proposals")}
-            className="text-md md:text-xl xl:text-2xl  font-semibold leading-relaxed hover:text-regular-theme  hover:border hover:border-light-theme "
+            className={`text-md md:text-xl xl:text-2xl  font-semibold leading-relaxed hover:text-regular-theme  hover:border hover:border-light-theme ${
+              active === "Sent proposals" ? "text-red-500" : ""
+            }`}
           >
             Sent proposals
-          </button>
-          <button
-            onClick={() => setActive("Edit profile")}
-            className="text-md md:text-xl xl:text-2xl font-semibold leading-relaxed  py-2 "
-          >
-            Edit profile
           </button>
         </div>
         {/* card */}
         <div>
+          {active === "Edit profile" && <InputField />}
           {active === "Your requirements" && <Card />}
           {active === "Sent proposals" && <Card />}
-          {active === "Edit profile" && <InputField />}
         </div>
       </section>
 

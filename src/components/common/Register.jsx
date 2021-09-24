@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { supabase } from '../../supabaseClient';
 
 const Register = () => {
+  const history = useHistory();
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -9,14 +12,45 @@ const Register = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { password, confirmPassword } = values;
+    const { password, confirmPassword, email, name } = values;
     if (password !== confirmPassword) {
       alert('password did not match');
     } else {
-      console.log(values);
       setIsSubmitting(true);
+      let { user, session, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      const {
+        data,
+        error: profileError,
+        status,
+      } = await supabase
+        .from('profile')
+        .update({ display_name: name, email })
+        .eq('id', user.id)
+        .single();
+
+      console.log(
+        'USER',
+        user,
+        'SESSION',
+        session,
+        'PROFILE',
+        data,
+        'ERROR',
+        profileError,
+        error,
+        'STATUS',
+        status
+      );
+      if (status === 200) {
+        localStorage.setItem('session', JSON.stringify(session));
+        history.push('/profile');
+      }
     }
   };
   const handleChange = (e) => {
@@ -61,12 +95,10 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Name"
                 className="w-full px-4 py-3   my-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
-                autofocus
-                autocomplete
                 required
               />
             </div>
-            <div classNameName="mt-4">
+            <div className="mt-4">
               <label className="block text-gray-700">Email Address</label>
               <input
                 type="email"
@@ -76,8 +108,6 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Email"
                 className="w-full px-4 py-3   mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
-                autofocus
-                autocomplete
                 required
               />
             </div>
@@ -91,7 +121,7 @@ const Register = () => {
                 value={values.password}
                 onChange={handleChange}
                 placeholder="Enter Password"
-                minlength="6"
+                minLength="6"
                 className="w-full  px-4 py-3   mt-2 border  border-light-theme focus:border-regular-theme
                 focus:bg-white focus:outline-none"
                 required
@@ -106,7 +136,7 @@ const Register = () => {
                 onChange={handleChange}
                 id=""
                 placeholder="Repeat password"
-                minlength="6"
+                minLength="6"
                 className="w-full  px-4 py-3   mt-2 border  border-light-theme focus:border-regular-theme
                 focus:bg-white focus:outline-none"
                 required

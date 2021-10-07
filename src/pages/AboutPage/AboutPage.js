@@ -5,7 +5,7 @@ const AboutPage = () => {
   const [values, setValues] = useState({
     name: "",
     email: "",
-    description: ""
+    description: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -50,7 +50,13 @@ const AboutPage = () => {
           <h1 className="text-4xl lg:text-5xl mt-6 lg:mt-2 text-black font-bold leading-10">
             Contact Us
           </h1>
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4" action="">
+          <form
+            onSubmit={handleSubmit}
+            action="mailto:e.k.tamzid@gmail.com"
+            method="post"
+            enctype="text/plain"
+            className="mt-6 space-y-4"
+          >
             <div>
               <label className="block text-gray-700">Name</label>
               <input
@@ -61,8 +67,6 @@ const AboutPage = () => {
                 onChange={handleChange}
                 placeholder="Name"
                 className="w-4/5 md:w-1/2 lg:w-4/5 xl:w-3/5 px-4 py-3  mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
-                autofocus
-                autocomplete
                 required
               />
             </div>
@@ -76,13 +80,11 @@ const AboutPage = () => {
                 onChange={handleChange}
                 placeholder="Enter email address"
                 className="w-4/5 md:w-1/2 lg:w-4/5 xl:w-3/5 px-4 py-3   my-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
-                autofocus
-                autocomplete
                 required
               />
             </div>
             <div className="mt-4 md:col-span-3  ">
-              <label class="block text-gray-700">Description</label>
+              <label className="block text-gray-700">Description</label>
               <textarea
                 type="text"
                 name="description"

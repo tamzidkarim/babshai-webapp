@@ -6,30 +6,34 @@ import { supabase } from '../../supabaseClient';
 const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [username, setUsername] = useState(null);
+  const user = supabase.auth.user();
   const getUserProfile = async () => {
     const user = supabase.auth.user();
-    let {
-      data: profile,
-      error,
-      status,
-    } = await supabase
-      .from('profile')
-      .select('display_name')
-      .eq('id', user.id)
-      .single();
-    if (error && status !== 406) {
-      throw error;
-    }
 
-    if (profile) {
-      setUsername(profile.display_name);
+    if (user) {
+      let {
+        data: profile,
+        error,
+        status,
+      } = await supabase
+        .from('profile')
+        .select('display_name')
+        .eq('id', user.id)
+        .single();
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (profile) {
+        setUsername(profile.display_name);
+      }
     }
   };
 
   useEffect(() => {
     getUserProfile();
     return () => {};
-  }, []);
+  }, [user]);
 
   console.log(username);
 
@@ -39,7 +43,7 @@ const Navbar = () => {
         <div>
           <Link to="/">
             <h1 className="text-light-theme text-xl lg:text-5xl text-center  font-bold">
-              Babshai
+              Babshai.com
             </h1>
           </Link>
         </div>

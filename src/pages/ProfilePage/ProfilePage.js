@@ -7,13 +7,14 @@ const ProfilePage = () => {
 
   return (
     <div className="relative antialiased">
-      <div
+      {/* <div
         className="absolute top-0 z-0 w-full bg-light-theme "
         style={{ height: "450px" }}
-      ></div>
+      ></div> */}
+
       <Navbar />
 
-      <section className="antialiased relative z-10 w-full    flex flex-col md:flex-row  justify-center md:justify-start max-w-2xl lg:max-w-4xl xl:container xl:px-16 mx-auto items-center   ">
+      {/* <section className="antialiased relative z-10 w-full    flex flex-col md:flex-row  justify-center md:justify-start max-w-2xl lg:max-w-4xl xl:container xl:px-16 mx-auto items-center   ">
         <img
           className="w-40 h-40 mt-20 rounded-full relative"
           src="https://www.pinkvilla.com/files/styles/contentpreview/public/iron-man-star-robert-downey-jr-best-film.jpg?itok=QFDPnWbO"
@@ -28,7 +29,7 @@ const ProfilePage = () => {
             Dhaka, Bangladesh
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* details */}
       <section className="mt-16 md:mt-36">
@@ -41,7 +42,7 @@ const ProfilePage = () => {
           >
             Edit profile
           </button>
-          <button
+          {/* <button
             onClick={() => setActive("Your requirements")}
             className={`text-md md:text-xl xl:text-2xl font-semibold leading-relaxed py-2  hover:text-regular-theme  hover:border hover:border-light-theme ${
               active === "Your requirements" ? "text-red-500" : ""
@@ -56,13 +57,13 @@ const ProfilePage = () => {
             }`}
           >
             Sent proposals
-          </button>
+          </button> */}
         </div>
         {/* card */}
         <div>
           {active === "Edit profile" && <InputField />}
-          {active === "Your requirements" && <Card />}
-          {active === "Sent proposals" && <Card />}
+          {active === "Your requirements" && <></>}
+          {active === "Sent proposals" && <></>}
         </div>
       </section>
 

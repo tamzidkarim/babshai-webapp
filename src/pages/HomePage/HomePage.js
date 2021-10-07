@@ -16,7 +16,7 @@ const HomePage = () => {
         {/* <video autoPlay loop muted>
           <source src={Video} type="video/mp4" />
         </video> */}
-        <div class="absolute z-0 inset-0 bg-black bg-opacity-40 "></div>
+        <div className="absolute z-0 inset-0 bg-black bg-opacity-40 "></div>
       </div>
 
       <Navbar />

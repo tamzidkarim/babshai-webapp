@@ -66,8 +66,6 @@ const Login = () => {
                 onChange={handleChange}
                 placeholder="Enter Email Address"
                 className="w-full px-4 py-3  mt-2 border border-light-theme focus:border-regular-theme focus:bg-white focus:outline-none"
-                autofocus
-                autocomplete
                 required
               />
             </div>

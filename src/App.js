@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/profile" component={ProfilePage} />
           <Route path="/products" exact component={ProductsPage} />
           <Route path="/products/:id" component={ProductRequirements} />
-          {/* <Route path="/editprofile" component={EditPage} /> */}
+
           <Route path="/post" component={FileUpload} />
           <Route path="/about" component={AboutPage} />
         </Switch>
